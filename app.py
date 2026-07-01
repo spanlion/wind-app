@@ -64,3 +64,13 @@ def calculate(address: str):
         "basic_wind_velocity_m_s": vb,
         "peak_velocity_pressure_N_m2": round(qp, 1)
     }
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

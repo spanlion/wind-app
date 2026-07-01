@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wind Calculator</title>
+</head>
+<body style="font-family: Arial; padding: 30px;">
+
+  <h2>Wind Load Calculator 🇫🇷</h2>
+
+  <input id="addr" placeholder="Enter address" size="40">
+  <button onclick="go()">Calculate</button>
+
+  <pre id="out"></pre>
+
+  <script>
+    async function go() {
+	alert("Clicked!");
+      const address = document.getElementById("addr").value;
+
+      const res = await fetch(
+        "https://wind-app-fa4g.onrender.com/calculate?address=" 
+        + encodeURIComponent(address)
+      );
+
+      const data = await res.json();
+
+      document.getElementById("out").innerText =
+        JSON.stringify(data, null, 2);
+    }
+  </script>
+
+</body>
+</html>
